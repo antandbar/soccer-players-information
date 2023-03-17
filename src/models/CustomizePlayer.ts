@@ -3,33 +3,33 @@
 import { DataTypes, Model } from 'sequelize';
 import { db } from '../lib/connectPostgresql';
 
-export interface Topic {
+export interface CustomizePlayer {
   id?: number;
-  text: string;
+  url: string;
 }
 
-class TopicSchema extends Model<Topic> implements Topic {
+class CustomizePlayerSchema extends Model<CustomizePlayer> implements CustomizePlayer {
   id!: number;
-  text!: string;
+  url!: string;
 }
 
-TopicSchema.init(
+CustomizePlayerSchema.init(
   {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
     },
-    text: {
+    url: {
       type: DataTypes.STRING,
-      unique: true,
+      allowNull: false,
     },
   },
   {
-    timestamps: false,
+    timestamps: true,
     sequelize: db,
-    modelName: 'topic',
+    modelName: 'customizePlayer',
   },
 );
 
-export default TopicSchema;
+export default CustomizePlayerSchema;

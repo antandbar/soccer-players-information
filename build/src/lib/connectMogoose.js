@@ -19,9 +19,9 @@ const dbMongodbConnection = () => {
         useNewUrlParser: true,
       } as mongoose.ConnectOptions);
     }; */
-    mongoose_1.default.connect((process.env.NODE_ENV) === 'test'
-        ? (process.env.URI_TEST)
-        : (process.env.URI), {
+    mongoose_1.default.connect(process.env.NODE_ENV === 'test'
+        ? process.env.URI_TEST
+        : process.env.URI, {
         useNewUrlParser: true,
     });
 };

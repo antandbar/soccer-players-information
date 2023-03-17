@@ -1,24 +1,35 @@
-import TopicSchema  from './Topic';
-import AddressSchema from './Address';
-import PostSchema from './Post';
+import PlayerSchema  from './Player';
+import TeamSchema from './Team';
+import SeasonSchema from './Season';
+import RequestSchema from './Request';
+import CustomizePlayerSchema from './CustomizePlayer';
 
 
 class Associations {
     public relations () {
 
-        // Uno a uno
-        //Añadir una clave foranea a la tabla adresses
-        TopicSchema.hasOne(AddressSchema, {foreignKey: 'topicId' });
+        //Relación n a n
+        PlayerSchema.hasMany(SeasonSchema, {foreignKey: 'playerId' });
+        SeasonSchema.belongsTo(PlayerSchema, {foreignKey: 'playerId' });
 
-        //Añade una clave topicId a la tabla adresses
-        AddressSchema.belongsTo(TopicSchema, {foreignKey: 'topicId' });
+        TeamSchema.hasMany(SeasonSchema, {foreignKey: 'teamId' });
+        SeasonSchema.belongsTo(TeamSchema, {foreignKey: 'teamId' });
 
-        //Uno a N
-        // Topic va a tener mucho post
-        // Se añade una clave topicId a la tabla posts
-        TopicSchema.hasMany(PostSchema, {foreignKey: 'topicId' });
-        // Se añade una clave topicId a la tabla posts
-        PostSchema.belongsTo(TopicSchema, {foreignKey: 'topicId' });
+
+        //Relación n a n
+        PlayerSchema.hasMany(RequestSchema, {foreignKey: 'playerId' });
+        RequestSchema.belongsTo(PlayerSchema, {foreignKey: 'playerId' });
+
+        TeamSchema.hasMany(RequestSchema, {foreignKey: 'teamId' });
+        RequestSchema.belongsTo(TeamSchema, {foreignKey: 'teamId' });
+
+        //Relación n a n
+        PlayerSchema.hasMany(CustomizePlayerSchema, {foreignKey: 'playerId' });
+        CustomizePlayerSchema.belongsTo(PlayerSchema, {foreignKey: 'playerId' });
+
+        TeamSchema.hasMany(CustomizePlayerSchema, {foreignKey: 'seasonId' });
+        CustomizePlayerSchema.belongsTo(TeamSchema, {foreignKey: 'seasonId' });
+
 
     }
 

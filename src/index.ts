@@ -12,7 +12,7 @@ import Associations from './models/Associations';
 
 // Routes
 import BooksRoutes from './routes/books';
-import TopicsRoutes from './routes/topics';
+import PlayersRoutes from './routes/players';
 
 // Inicializaciones
 const app = express();
@@ -42,7 +42,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 app.use('/apiv1/books', BooksRoutes);
-app.use('/apiv1/topics', TopicsRoutes);
+app.use('/apiv1/players', PlayersRoutes);
 
 // Estaticos
 app.use(express.static(path.join(__dirname, 'public')));
