@@ -27,8 +27,8 @@ class Associations {
         PlayerSchema.hasMany(CustomizePlayerSchema, {foreignKey: 'playerId' });
         CustomizePlayerSchema.belongsTo(PlayerSchema, {foreignKey: 'playerId' });
 
-        TeamSchema.hasMany(CustomizePlayerSchema, {foreignKey: 'seasonId' });
-        CustomizePlayerSchema.belongsTo(TeamSchema, {foreignKey: 'seasonId' });
+        TeamSchema.hasMany(CustomizePlayerSchema, {foreignKey: 'teamId' });
+        CustomizePlayerSchema.belongsTo(TeamSchema, {foreignKey: 'teamId' });
 
 
     }
