@@ -30,7 +30,7 @@ AddressSchema.init(
     }
   },
   {
-    timestamps: false,
+    timestamps: true,
     sequelize: db,
     modelName: 'address',
   },

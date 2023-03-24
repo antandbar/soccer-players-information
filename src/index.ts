@@ -16,6 +16,8 @@ import PlayersRoutes from './routes/players';
 import AddressesRoutes from './routes/addresses';
 import CustomizePlayersRoutes from './routes/customizePlayers';
 import RequestsRoutes from './routes/requests';
+import SeasonsRoutes from './routes/seasons';
+import TeamsRoutes from './routes/teams';
 
 // Inicializaciones
 const app = express();
@@ -49,6 +51,8 @@ app.use('/apiv1/players', PlayersRoutes);
 app.use('/apiv1/addresses', AddressesRoutes);
 app.use('/apiv1/customizePlayers', CustomizePlayersRoutes);
 app.use('/apiv1/requests', RequestsRoutes);
+app.use('/apiv1/seasons', SeasonsRoutes);
+app.use('/apiv1/teams', TeamsRoutes);
 
 // Estaticos
 app.use(express.static(path.join(__dirname, 'public')));
