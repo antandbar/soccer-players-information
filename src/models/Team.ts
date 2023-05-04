@@ -48,14 +48,14 @@ TeamSchema.init(
     emailResp: {
       type: DataTypes.STRING,
       unique: true,
-      allowNull: false,
+      allowNull: true,
     },
     phoneResp: {
       type: DataTypes.STRING,
     },
     addressTeam: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     nameTeam: {
       type: DataTypes.STRING,
@@ -63,7 +63,7 @@ TeamSchema.init(
     },
     shieldUrlTeam: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {
